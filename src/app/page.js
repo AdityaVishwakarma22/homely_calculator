@@ -9,7 +9,7 @@ const fetchRandomValues = async () => {
       resolve({
         quantity: Math.floor(Math.random() * 10) + 1,
         price: Math.floor(Math.random() * 100) + 1,
-        total: 0,
+        total: Math.floor(Math.random() * 100) + 1,
         profit: Math.floor(Math.random() * 1000) + 1,
       });
     }, 500);
@@ -29,7 +29,6 @@ export default function Home() {
       const apiData = await fetchRandomValues();
       setFormData({
         ...apiData,
-        total: apiData.quantity * apiData.price,
       });
     };
     loadData();
